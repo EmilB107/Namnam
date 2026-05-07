@@ -126,3 +126,13 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', closeMenu);
     });
 });
+
+// Menu page: slide menu-nav over header on scroll
+document.addEventListener('DOMContentLoaded', function () {
+    const menuNav = document.querySelector('.menu-nav');
+    if (!menuNav) return;
+
+    window.addEventListener('scroll', function () {
+        menuNav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+});

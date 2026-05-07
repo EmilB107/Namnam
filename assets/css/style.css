@@ -824,7 +824,7 @@ nav ul li a:hover {
         align-items: center;
         gap: 32px;
         background-color: rgba(92, 28, 28, 0.97);
-        z-index: 1000;
+        z-index: 1002;
         padding-top: 80px;
         margin: 0;
     }
@@ -842,6 +842,7 @@ nav ul li a:hover {
     }
 
     .nav-close-item {
+        display: block;
         position: absolute;
         top: 20px;
         right: 5%;
@@ -859,6 +860,10 @@ nav ul li a:hover {
     nav:has(ul.open) .hamburger {
         display: none;
     }
+}
+
+body:has(nav ul.open) .menu-nav {
+    z-index: 999;
 }
 
 @media (max-width: 480px) {
@@ -905,27 +910,36 @@ nav ul li a:hover {
     .menu-nav {
         flex-wrap: wrap;
         gap: 15px;
-        padding: 5px 0;
     }
 
     .menu-nav button {
         font-size: 0.9rem;
-        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 628px) {
+    .menu-nav {
+        top: 85px;
+        z-index: 1001;
+        transition: top 0.3s ease;
+    }
+
+    .menu-nav.scrolled {
+        top: 0;
+    }
+
+    .menu-container {
+        padding-top: 220px;
+    }
+
+    .menu-category {
+        scroll-margin-top: 60px;
     }
 }
 
 @media (max-width: 480px) {
-    .menu-nav {
-        top: 180px;
-    }
-
     .menu-nav button {
         font-size: 0.85rem;
-        padding: 6px 12px;
-    }
-
-    .menu-container {
-        padding-top: 280px;
     }
 }
 
