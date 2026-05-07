@@ -422,9 +422,10 @@ h4, h5, h6 {
 /* Start: Gallery Page */
 .food-item {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 50px;
+    padding-top: 130px;
     border-bottom: 2px solid transparent; 
     border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); 
     border-image-slice: 1; 
@@ -776,28 +777,76 @@ nav ul li a:hover {
     }
 }
 
+.nav-close-item {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8F1E5;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    z-index: 1001;
+    position: relative;
+}
+
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: row;
-        justify-content: space-between;
+    .hamburger {
+        display: block;
     }
 
     nav ul {
-        flex-direction: row;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 32px;
+        background-color: rgba(92, 28, 28, 0.97);
+        z-index: 1000;
+        padding-top: 80px;
+        margin: 0;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    nav ul li a {
+        font-size: 1.4rem;
+    }
+
+    .nav-close-item {
+        position: absolute;
+        top: 20px;
+        right: 5%;
+    }
+
+    .nav-close {
+        background: none;
+        border: none;
+        color: #F8F1E5;
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    nav:has(ul.open) .hamburger {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     header {
         padding: 15px 5%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
     }
 }
 
@@ -865,6 +914,11 @@ nav ul li a:hover {
 
 /* individual gallery navbar style */
 .gallery-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
     padding: 20px 5%;
     background-color: #5c1c1ce6;
+    transition: background-color 0.4s ease-in-out, padding 0.3s ease-in-out;
 }
