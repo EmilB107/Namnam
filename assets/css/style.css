@@ -37,23 +37,36 @@ h4, h5, h6 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 300px;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 8rem 2rem;
+}
+
+.contact-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
 .contact-header h1 {
-    font-size: 3rem;
-    color: var(--secondary-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     margin: 0;
-}
-
-
-.contact-header h1 {
-    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -219,10 +232,11 @@ h4, h5, h6 {
 }
 
 .about-page-header h1 {
-    font-family: var(--font-title);
-    font-size: clamp(5rem, 10vw, 7rem); 
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: #ffffff;
     margin: 0;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     position: relative;
     z-index: 2;
 }
